@@ -1,0 +1,8 @@
+[run]
+branch = True
+
+[html]
+directory = htmlcov
+
+[report]
+skip_covered = True
