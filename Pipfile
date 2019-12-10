@@ -11,6 +11,7 @@ pytest-cov = "*"
 pytest-env = "*"
 pytest-flask = "*"
 tox = "*"
+tox-pyenv = "*"
 
 [packages]
 flask = "*"
