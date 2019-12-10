@@ -1,7 +1,7 @@
 import pytest
 from passlib.hash import pbkdf2_sha256
+
 # -*- coding: utf-8 -*-
-from random import randint
 from app import create_app
 from db.test_models import TEST_SUBJECTS
 from db.models import (
@@ -56,7 +56,12 @@ def database():
         db.session.add(user)
         db.session.add(profile)
         important_tt = ThingyType(
-            **{"id": 1, "user_id": subject["id"], "tag": "important", "name": "Important"}
+            **{
+                "id": 1,
+                "user_id": subject["id"],
+                "tag": "important",
+                "name": "Important",
+            }
         )
         db.session.add(important_tt)
         deferred_tt = ThingyType(
@@ -68,11 +73,7 @@ def database():
         )
         db.session.add(delayed_tt)
         thingy = Thingy(
-            **{
-                "id": 1,
-                "user_id": subject["id"],
-                "type_id": important_tt.id
-            }
+            **{"id": 1, "user_id": subject["id"], "type_id": important_tt.id}
         )
         db.session.add(thingy)
 
